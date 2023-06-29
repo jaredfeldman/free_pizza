@@ -45,3 +45,15 @@
 
 ## EDA Notes/Findings
 - `requester_received_pizza` column is boolean outcome label
+- does not appear to be any missing values - all columns have 4040 entry count
+- `post_was_edited` looks weird - should be boolean but have non 0/1 entries - may need to impute
+    - 299/4040 (~7.5%) of observations are not 0 or 1
+    - 346/4040 (~8.6%) of observations are 1
+    - 3395/4040 (~84%) of observations are 0
+- the 4 columns that sum/subtract upvotes and downvotes may need imputing. max upvote is 345, max downvote is 47, but sums are in millions - is this total for the user (requester)? Or just for this post?
+- notable correlations:
+    - strong positive correlation (0.92) between `requester_upvotes_minus_downvotes_at_request` and `requester_upvotes_plus_downvotes_at_request`
+    - strong positive correlation (0.75) between `requester number of subreddits at request` and `requester_number_of_comments_at_request`
+    - <span style="color:green">**QUESTION FOR GROUP**: a few in the ~0.5 range, do we want to look more into these too?</span>
+- a lot of skewed distributions for the features
+    - <span style="color:green">**QUESTION FOR GROUP**: should we transform?</span>
