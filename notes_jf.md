@@ -6,7 +6,6 @@
 - this example is about tweets, which is only words. Pizza project has words and other features... break out text separately and evaluate?
 - potentially helpful code snippets:
     - in addition to other imports: `from sklearn import feature_extraction, linear_model, model_selection, preprocessing`
-    - 
 
 ## Random Acts of Pizza Subreddit
 ### Intro to Random Acts of Pizza Rules on Reddit
@@ -45,6 +44,7 @@
 
 ## EDA Notes/Findings
 - `requester_received_pizza` column is boolean outcome label
+    - <span style="color:green">**QUESTION FOR GROUP**: turn this into 1 and 0 or OK as is?</span>
 - does not appear to be any missing values - all columns have 4040 entry count
 - `post_was_edited` looks weird - should be boolean but have non 0/1 entries - may need to impute
     - 299/4040 (~7.5%) of observations are not 0 or 1
@@ -57,3 +57,12 @@
     - <span style="color:green">**QUESTION FOR GROUP**: a few in the ~0.5 range, do we want to look more into these too?</span>
 - a lot of skewed distributions for the features
     - <span style="color:green">**QUESTION FOR GROUP**: should we transform?</span>
+- `requester_subreddits_at_request`
+    - this lists the different subreddits the user is part of
+    - <span style="color:green">**QUESTION FOR GROUP**:can probably drop unless we want to look at specific subreddit relationships. If we want count, we can use column `requester_number_of_subreddits_at_request`</span>
+- `request_title`
+    - each title starts with some version of "[Request]"
+        - need to figure out how to handle this
+
+## Other
+- <span style="color:green">**QUESTION FOR GROUP**: Should we try using wikipedia data (would need to find it) and transfer learnings into a model for us?</span>
